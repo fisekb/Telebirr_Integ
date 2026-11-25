@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Telebirr Admin</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell admin-shell">
+    <header class="brand">
+      <div class="brand-mark" aria-hidden="true">T</div>
+      <div>
+        <p class="eyebrow">Administration</p>
+        <h1>Telebirr Admin</h1>
+      </div>
+    </header>
+    <p id="admin-message" class="status" role="status" aria-live="polite"></p>
+    <form id="admin-login" class="card admin-login">
+      <div class="card-heading">
+        <p class="eyebrow">Restricted area</p>
+        <h2>Log in</h2>
+      </div>
+      <label>Admin password
+        <input name="password" type="password" autocomplete="current-password" placeholder="Enter admin password" required>
+      </label>
+      <button class="button primary" type="submit">Log in</button>
+    </form>
+    <section id="admin-data" class="admin-data" hidden>
+      <div class="dashboard-head card">
+        <div>
+          <p class="eyebrow">Control panel</p>
+          <h2>Payment review</h2>
+        </div>
+        <button id="admin-logout" class="button ghost" type="button">Log out</button>
+      </div>
+      <div class="admin-grid">
+        <section class="card admin-section">
+          <div class="card-heading"><p class="eyebrow">Pending</p><h2>Manual requests</h2></div>
+          <ul id="pending-requests" class="history-list"></ul>
+        </section>
+        <section class="card admin-section">
+          <div class="card-heading"><p class="eyebrow">Needs a match</p><h2>Uncredited payments</h2></div>
+          <ul id="uncredited" class="history-list"></ul>
+        </section>
+        <section class="card admin-section wide">
+          <div class="card-heading"><p class="eyebrow">Diagnostics</p><h2>Unparsed SMS</h2></div>
+          <ul id="unparsed" class="history-list"></ul>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="/admin.js" defer></script>
+</body>
+</html>

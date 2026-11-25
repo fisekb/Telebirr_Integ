@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Telebirr Points</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="brand">
+      <div class="brand-mark" aria-hidden="true">T</div>
+      <div>
+        <p class="eyebrow">Rewards</p>
+        <h1>Telebirr Points</h1>
+      </div>
+    </header>
+
+    <p id="message" class="status" role="status" aria-live="polite"></p>
+
+    <section id="auth" class="auth-grid">
+      <form id="login-form" class="card form-card">
+        <div class="card-heading">
+          <p class="eyebrow">Welcome back</p>
+          <h2>Log in</h2>
+        </div>
+        <label>Username
+          <input name="username" autocomplete="username" placeholder="Enter your username" required>
+        </label>
+        <label>Password
+          <input name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+        </label>
+        <button class="button primary" type="submit">Log in</button>
+      </form>
+
+      <form id="signup-form" class="card form-card">
+        <div class="card-heading">
+          <p class="eyebrow">New here?</p>
+          <h2>Create account</h2>
+        </div>
+        <div class="field-grid">
+          <label>Username
+            <input name="username" minlength="3" maxlength="32" pattern="[A-Za-z0-9_]{3,32}" placeholder="Choose a username" required>
+          </label>
+          <label>Password
+            <input name="password" type="password" minlength="10" maxlength="72" autocomplete="new-password" placeholder="At least 10 characters" required>
+          </label>
+          <label class="wide">Full name as on your Telebirr account
+            <input name="fullName" maxlength="120" placeholder="Full legal name" required>
+          </label>
+          <label class="wide">Telebirr phone number
+            <input name="phone" autocomplete="tel" placeholder="0911 234 567" required>
+          </label>
+        </div>
+        <button class="button primary" type="submit">Create account</button>
+      </form>
+    </section>
+
+    <section id="dashboard" class="dashboard" hidden>
+      <div class="dashboard-head card">
+        <div>
+          <p class="eyebrow">Signed in as</p>
+          <h2 id="username"></h2>
+        </div>
+        <button id="logout-button" class="button ghost" type="button">Log out</button>
+      </div>
+
+      <div class="dashboard-grid">
+        <section class="card balance-card">
+          <p class="eyebrow">Available points</p>
+          <strong id="points">0.00</strong>
+          <div class="actions">
+            <button id="deposit-button" class="button primary" type="button">Deposit</button>
+            <button id="withdraw-button" class="button ghost" type="button">Withdraw</button>
+          </div>
+        </section>
+
+        <section id="deposit-panel" class="card deposit-card" hidden>
+          <div class="card-heading">
+            <p class="eyebrow">Add points</p>
+            <h2>Deposit</h2>
+          </div>
+          <div class="transfer-details">
+            <div>
+              <span>Telebirr number</span>
+              <strong id="telebirr-number"></strong>
+            </div>
+            <div>
+              <span>Account name</span>
+              <strong id="telebirr-name"></strong>
+            </div>
+          </div>
+          <p class="note">Send from your registered telebirr number. Points are added automatically.</p>
+          <form id="manual-form" class="manual-form">
+            <label>Points not added? Submit your Transaction ID
+              <input name="txId" minlength="10" maxlength="10" pattern="[A-Za-z0-9]{10}" placeholder="10 letters or digits" required>
+            </label>
+            <button class="button secondary" type="submit">Submit ID</button>
+          </form>
+        </section>
+      </div>
+
+      <div class="dashboard-grid history-grid">
+        <section class="card">
+          <div class="card-heading">
+            <p class="eyebrow">Transactions</p>
+            <h3>Credited payments</h3>
+          </div>
+          <ul id="payments" class="history-list"></ul>
+        </section>
+        <section class="card">
+          <div class="card-heading">
+            <p class="eyebrow">Review queue</p>
+            <h3>Submitted Transaction IDs</h3>
+          </div>
+          <ul id="requests" class="history-list"></ul>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
